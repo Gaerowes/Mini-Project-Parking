@@ -4,19 +4,19 @@ Simple parking system simulation using:
 - Stack (Parkiran)
 - Deque (Opsional dua arah)
 
-## 📌 Features
+##  Features
 - Tambah mobil ke antrian
 - Parkir mobil (Queue → Stack)
 - Mobil keluar (Stack)
 - Deque depan & belakang
 - Tampilkan semua data
 
-## 🧠 Data Structures Used
+##  Data Structures Used
 - Queue (FIFO)
 - Stack (LIFO)
 - Deque (Double-ended queue)
 
-## ⚙️ Compile & Run
+##  Compile & Run
 
 ```bash
 gcc main.c -o park
