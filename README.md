@@ -2,7 +2,7 @@
 Simple parking system simulation using:
 - Queue (Antrian mobil masuk)
 - Stack (Parkiran)
-- Deque (Opsional dua arah)
+- Deque (VIP dua arah)
 
 ##  Features
 - Tambah mobil ke antrian
