@@ -36,12 +36,13 @@ typedef struct{
     
 typedef struct{
     char data[MAX][10];
-    int fornt, rear;
+    int front, rear;
 } Deque;
     
 int main(){
     Queue q;
     Stack s;
+    Deque d;
     
     q.front = 0;
     q.rear = -1;
@@ -55,11 +56,13 @@ int main(){
     do {
         printf("\n=== Menu ===\n");
         printf("1. Tambah mobil\n");
-        printf("2. Parkir mobil\n");
+        printf("2. Parkir mobil(Queue)\n");
         printf("3. Mobil keluar\n");
         printf("4. Tampilakan\n");
-        printf("5. deque depan\n");
-        printf("6. deque belakang\n")
+        printf("5. Masuk depan\n");
+        printf("6. Masuk belakang\n");
+        printf("7. Parkir dari depan\n");
+        printf("8. Parkir dari belakang\n");
         printf("0. Exit\n");
         printf("Pilih: ");
         scanf("%d", &pilih);
@@ -109,7 +112,17 @@ int main(){
                 for(int i = 0;i <= s.top;i++){
                     printf("%s ", s.data[i]);
                 }
-                printf("\n");
+                printf("\n");   
+            
+            printf("\nDeque: ");
+                if (d.front == -1) printf("kosong");
+                else {
+                    for (int i = d.front; i <= d.rear; i++) {
+                    printf("%s ", d.data[i]);
+                    }
+                }
+                    printf("\n");
+                
         }
         else if (pilih == 5) {
             printf("Plat: ");
@@ -122,12 +135,53 @@ int main(){
             } else {
                 printf("deque penuh depan\n");
                 continue;
-            } strcpy (d.data[d.front, plat]);
+            } strcpy (d.data[d.front], plat);
         }
         else if (pilih == 6) {
+            printf("Plat: ");
+            scanf("%s", plat);
             if (d.rear < MAX - 1){
                 if (d.front == -1) d.front = 0;
+                strcpy(d.data[++d.rear], plat);
+            }
+            else {
+                printf("Deque penuh belakang\n");
+            }
+        }
+        else if (pilih == 7) {
+            if (d.front == -1){
+                printf("Deque kosong\n");
+            }
+            else if (s.top < MAX - 1){
+                strcpy(s.data[++s.top], d.data[d.front]);
+                d.front++;
                 
+                if (d.front > d.rear){
+                    d.front = d.rear = -1;
+                }
+                
+                printf("Mobil dari depan diparkir\n");
+            }
+            else {
+                printf("Parkir penuh\n");
+            }
+        }
+        else if (pilih == 8){
+            if (d.rear == -1){
+                printf("Deque kosong\n");
+            }
+            else if (s.top < MAX - 1){
+                strcpy(s.data[++s.top], d.data[d.rear]);
+                d.rear--;
+                
+                if (d.front > d.rear){
+                    d.front = d.rear = -1;
+                }
+                
+                printf("Mobil dari belakang diparkir\n");
+            }
+            else {
+                printf("Parkir penuh\n");
             }
         }
     } 
@@ -135,4 +189,3 @@ int main(){
     
     return 0;
 }
-📷 Example M
